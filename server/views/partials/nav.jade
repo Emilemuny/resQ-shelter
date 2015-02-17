@@ -1,3 +1,11 @@
-nav
-  ul
-    li: a(href='/') Home
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      a.navbar-brand(href='#') WebSiteName
+    div
+      ul.nav.navbar-nav
+        li.active
+        li: a(href='/') Home
+        li: a(href='/faq') FAQ
+        li: a(href='/about') About
+        li: a(href='/contact') Contact
