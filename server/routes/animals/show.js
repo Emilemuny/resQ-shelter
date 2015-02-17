@@ -4,8 +4,8 @@ var active = require('../../views/helpers/active');
 var Animal = require('../../models/animal');
 module.exports= {
   handler: function(request, reply) {
-    Animal.find({isAdopted:false}, function(err, animals){
-      reply.view('templates/animals/index',{path:'/animals', active:active, animals:animals});
+    Animal.findOne({_id:request.params.animalId}, function(err, animal){
+      reply.view('templates/animals/show',{path:'/animals', active:active, animal:animal});
 
     });
   }
