@@ -10,7 +10,7 @@ block content
           input#name.form-control(type='text', name='name', autofocus=true)
         .form-group
           label(for='description') Description
-          textarea#description.form-control(rows='5', name='description'
+          textarea#description.form-control(rows='5', name='description')
         .form-group
           label(for='photo') Photo
           input#photo.form-control(type='url', name='photo')
@@ -20,8 +20,26 @@ block content
         .form-group
           label Gender
           .radio
-            
-            
-            
+            label
+              input(type='radio', name='gender', value='male')
+              span Male
+          .radio
+            label
+              input(type='radio', name='gender', value='female')
+              span Female
+        .form-group
+          label(for='species') Species
+          select#species.form-control(name='species')
+            option Dog
+            option Cat
+            option Shark
+            option Bird
+            option Walrus
+        .form-group
+          label(for='breed') Breed
+          input#breed.form-control(type='text', name='breed')
+        .form-group
+          button.btn.btn-default(type='submit') Add Animal
+    .col-xs-8
         
           
