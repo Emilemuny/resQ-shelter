@@ -1,0 +1,27 @@
+extends ../../layouts/master
+block content
+  h3 New Animal
+  
+  .row
+    .col-xs-4
+      form(method='post', action='/animals')
+        .form-group
+          label(for='name') Name
+          input#name.form-control(type='text', name='name', autofocus=true)
+        .form-group
+          label(for='description') Description
+          textarea#description.form-control(rows='5', name='description'
+        .form-group
+          label(for='photo') Photo
+          input#photo.form-control(type='url', name='photo')
+        .form-group
+          label(for='age') Age
+          input#age.form-control(type='number', name='age')
+        .form-group
+          label Gender
+          .radio
+            
+            
+            
+        
+          
