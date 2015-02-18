@@ -5,7 +5,7 @@ block content
   
   .animals
     each animal in animals
-      .animal
+      .animal.col-md-3
         .photo(style='background-image:url("#{animal.photo}");')
         .info
           .name: a(href='/animals/#{animal._id}')= animal.name

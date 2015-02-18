@@ -1,0 +1,45 @@
+extends ../../layouts/master
+block content
+  h3= animal.name
+  
+  .row
+    .col-xs-4
+      form(method='post', action='/animals')
+        .form-group
+          label(for='name') Name
+          input#name.form-control(type='text', name='name', autofocus=true, value=animal.name)
+        .form-group
+          label(for='description') Description
+          textarea#description.form-control(rows='5', name='description')= animal.description
+        .form-group
+          label(for='photo') Photo
+          input#photo.form-control(type='url', name='photo', value=animal.photo)
+        .form-group
+          label(for='age') Age
+          input#age.form-control(type='number', name='age', value=animal.age)
+        .form-group
+          label Gender
+          .radio
+            label
+              input(type='radio', name='gender', value='male')
+              span Male
+          .radio
+            label
+              input(type='radio', name='gender', value='female')
+              span Female
+        .form-group
+          label(for='species') Species
+          select#species.form-control(name='species', value=animal.species)
+            option(value='Dog') Dog
+            option(value='Cat') Cat
+            option(value='Shark') Shark
+            option(value='Bird') Bird
+            option(value='Walrus') Walrus
+        .form-group
+          label(for='breed') Breed
+          input#breed.form-control(type='text', name='breed', value=animal.breed)
+        .form-group
+          button.btn.btn-default(type='submit') Add Animal
+    .col-xs-8
+        
+          

@@ -9,5 +9,7 @@ module.exports = [
   {method: 'get', path: '/animals', config: require('../routes/animals/index')},
   {method: 'get', path: '/animals/new', config: require('../routes/animals/new')},
   {method: 'post', path: '/animals', config: require('../routes/animals/create')},
-  {method: 'get', path: '/animals/{animalId}', config: require('../routes/animals/show')}
+  {method: 'get', path: '/animals/{animalId}', config: require('../routes/animals/show')},
+  {method: 'post', path: '/animals/{animalId}/delete', config: require('../routes/animals/destroy')},
+  {method: 'get', path: '/animals/{animalId}/edit', config: require('../routes/animals/edit')}
 ];

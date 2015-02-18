@@ -2,6 +2,12 @@ extends ../../layouts/master
 block content
   h3 Animal
   
+  
+  form(method='post', action='/animals/#{animal._id}/delete')
+    button.btn.btn-danger(type='submit') Delete Animal
+    
+  a.btn.btn-info(href='/animals/#{animal._id}/edit') Edit Animal  
+  
   .animal
     .photo(style='background-image:url("#{animal.photo}");')
     .info
