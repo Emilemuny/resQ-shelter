@@ -8,6 +8,12 @@ block content
     
   a.btn.btn-info(href='/animals/#{animal._id}/edit') Edit Animal  
   
+  form(method='post', action='/animals/#{animal._id}/adopt')
+    select(name='clientId')
+      each client in clients
+        option(value=client._id)= client.name
+    button(type='submit') Adopt  
+  
   .animal
     .photo(style='background-image:url("#{animal.photo}");')
     .info
