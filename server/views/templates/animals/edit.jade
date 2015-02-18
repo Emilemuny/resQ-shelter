@@ -4,7 +4,7 @@ block content
   
   .row
     .col-xs-4
-      form(method='post', action='/animals')
+      form(method='post', action='/animals/#{animal._id}')
         .form-group
           label(for='name') Name
           input#name.form-control(type='text', name='name', autofocus=true, value=animal.name)
@@ -29,17 +29,14 @@ block content
               span Female
         .form-group
           label(for='species') Species
-          select#species.form-control(name='species', value=animal.species)
-            option(value='Dog') Dog
-            option(value='Cat') Cat
-            option(value='Shark') Shark
-            option(value='Bird') Bird
-            option(value='Walrus') Walrus
+          select#species.form-control(name='species')
+            each s in species
+              option(selected=animal.species === s)= s
         .form-group
           label(for='breed') Breed
           input#breed.form-control(type='text', name='breed', value=animal.breed)
         .form-group
-          button.btn.btn-default(type='submit') Add Animal
+          button.btn.btn-default(type='submit') Submit your changes!
     .col-xs-8
         
           

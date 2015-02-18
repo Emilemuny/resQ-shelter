@@ -3,6 +3,27 @@ block content
   h3 This is animals
   a(href='/animals/new') New Animal
   
+  #filter
+    form(method='get', action='/animals')
+      label Min Age
+      input(type='number', name='min')
+      lable Max Age
+      input(type='number', name='max')
+      label Gender
+      select(name='gender')
+        option male
+        option female
+      label Species
+      select(name='species')
+        option Dog
+        option Cat
+        option Shark
+        option Bird
+        option Walrus
+      label Breed
+      input(type='text', name='breed')
+      button(type='submit') Filter    
+  
   .animals
     each animal in animals
       .animal.col-md-3
@@ -12,5 +33,5 @@ block content
           .description= animal.description
           .age= animal.age
           .gender= animal.gender
-          .breed= animal.breed
-          .adopted= animal.isAdopted
+          .breed= animal.breed 
+          
