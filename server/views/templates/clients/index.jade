@@ -1,0 +1,15 @@
+extends ../../layouts/master
+block content
+  h3 This is clients
+  a(href='/clients/new') New Client
+  
+  #clients
+    each client in clients
+      .client
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title: a(href='/clients/#{client._id}')= client.name
+          .panel-body
+            dl
+              dt Address
+              dd= client.address

@@ -3,23 +3,32 @@ block content
   h3 Animal
   
   
-  form(method='post', action='/animals/#{animal._id}/delete')
-    button.btn.btn-danger(type='submit') Delete Animal
-    
-  a.btn.btn-info(href='/animals/#{animal._id}/edit') Edit Animal  
+  if(!animal.isAdopted)
+    h3 Adopt Animal
+    form.form-inline(method='post', action='/animals/#{animal._id}/adopt')
+      .form-group
+        select#clientId.form-control.input-sm(name='clientId')
+          each client in clients
+            option(value=client._id)= client.name
+      .form-group
+        button.btn.btn-primary.btn-sm(type='submit') Adopt
+
+  h3 Detail View
+
+  .page-header
+    h1= animal.name
+  p= animal.description 
   
-  form(method='post', action='/animals/#{animal._id}/adopt')
-    select(name='clientId')
-      each client in clients
-        option(value=client._id)= client.name
-    button(type='submit') Adopt  
-  
-  .animal
-    .photo(style='background-image:url("#{animal.photo}");')
-    .info
-      .name: a(href='/animals/#{animal._id}')= animal.name
-      .description= animal.description
-      .age= animal.age
-      .gender= animal.gender
-      .breed= animal.breed
-      
+  table.table
+    thead
+      tr.active
+        th Gender
+        th Age
+        th Species
+        th Breed
+    tbody
+      tr.success
+        td= animal.gender
+        td= animal.age
+        td= animal.species
+        td= animal.breed

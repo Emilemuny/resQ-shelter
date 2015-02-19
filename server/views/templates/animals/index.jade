@@ -1,37 +1,49 @@
 extends ../../layouts/master
 block content
-  h3 This is animals
+
   a(href='/animals/new') New Animal
   
-  #filter
-    form(method='get', action='/animals')
-      label Min Age
-      input(type='number', name='min')
-      lable Max Age
-      input(type='number', name='max')
-      label Gender
-      select(name='gender')
-        option male
-        option female
-      label Species
-      select(name='species')
-        option Dog
-        option Cat
-        option Shark
-        option Bird
-        option Walrus
-      label Breed
-      input(type='text', name='breed')
-      button(type='submit') Filter    
+  h3 Filter through the animals
+  form.form-inline(method='get', action='/animals')
+    .form-group
+      input#min.form-control.input-sm(type='number', name='min', autofocus=true, placeholder='Min Age')
+    .form-group
+      input#max.form-control.input-sm(type='number', name='max', placeholder='Max Age')
+    .form-group
+      input#breed.form-control.input-sm(type='text', name='breed', placeholder='Breed')
+    .form-group
+      select#gender.form-control.input-sm(name='gender')
+        option(value='') Pick Gender
+        option(value='male') male
+        option(value='female') female
+    .form-group
+      select#species.form-control.input-sm(name='species')
+        option(value='') Pick Species
+        option(value='Dog') Dog
+        option(value='Cat') Cat
+        option(value='Shark') Shark
+        option(value='Bird') Bird
+        option(value='Walrus') Walrus
+    .form-group
+      button.btn.btn-primary.btn-sm(type='submit') Filter  
+  h3 See all of animals
   
-  .animals
+  #animals
     each animal in animals
-      .animal.col-md-3
-        .photo(style='background-image:url("#{animal.photo}");')
-        .info
-          .name: a(href='/animals/#{animal._id}')= animal.name
-          .description= animal.description
-          .age= animal.age
-          .gender= animal.gender
-          .breed= animal.breed 
+      .animal
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title: a(href='/animals/#{animal._id}')= animal.name
+          .panel-body
+             .pandel-success
+               dl
+                 dt Gender
+                 dd= animal.gender
+                 dt Age
+                 dd= animal.age
+                 dt Species
+                 dd= animal.species
+                 dt Breed
+                 dd= animal.breed
+               .photo(style='background-image:url("'+animal.photo+'")')
           

@@ -1,0 +1,33 @@
+extends ../../layouts/master
+block content
+  h3 New Client
+  
+  .row
+    .col-xs-4
+      form(method='post', action='/clients')
+        .form-group
+          label(for='name') Name
+          input#name.form-control(type='text', name='name', autofocus=true)
+        .form-group
+          label(for='description') Description
+          textarea#description.form-control(rows='5', name='description')
+        .form-group
+          label(for='age') Age
+          input#age.form-control(type='number', name='age')
+        .form-group
+          label Gender
+          .radio
+            label
+              input(type='radio', name='gender', value='male')
+              span Male
+          .radio
+            label
+              input(type='radio', name='gender', value='female')
+              span Female
+        .form-group
+          label(for='address') Address
+          input#address.form-control(type='text', name='address')
+        .form-group
+          button.btn.btn-default(type='submit') Add Client
+    .col-xs-8
+        

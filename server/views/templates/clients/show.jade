@@ -1,0 +1,30 @@
+extends ../../layouts/master
+block content
+  h3 Client
+  
+  
+  form(method='post', action='/clients/#{client._id}/delete')
+    button.btn.btn-danger(type='submit') Delete Client
+    
+  a.btn.btn-info(href='/clients/#{client._id}/edit') Edit Client  
+  
+  .page-header
+    h1= client.name
+  
+  table.table
+    thead
+      tr
+        th Address
+    tbody
+      tr
+        td= client.address
+
+  h3 Adopted Animals
+  #animals
+    each animal in client.pets
+      .animal
+        h5: a(href='/animals/#{animal._id}')= animal.name
+        .photo(style='background-image:url("'+animal.photo+'")')
+
+      
+      

@@ -2,16 +2,23 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    title Hapi Prototype
-    link(rel='shortcut icon' href='/favicon.ico' type='image/x-icon')
-    link(rel='stylesheet', href='/style.css')
+    title resQ Shell
+    
+
     link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/style.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+    link(rel='shortcut icon', href='/favicon.ico')
   body
     include ../partials/nav
-    .container 
+    .container-fluid
+      .row
+        .col-xs-12 
       block content
+        
     script(src='/vendor/jquery/dist/jquery.js')
     script(src='/vendor/lodash/lodash.js')
+    script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')  
       
